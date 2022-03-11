@@ -18,7 +18,7 @@ const Ats4 = require('./src/ats4-model');
         console.log(findSimpleResult);
         console.log('-----------------------------------');
         console.log('Result for "find one" on collection WITH inheritance does loose filters:');
-        // first item in databse is returned since filters are list when mongoose executes the query (see debug output)
+        // first item in database is returned since filters are list when mongoose executes the query (see debug output)
         const findOneResult = await Ats.findOne({ serialNumber: 'ats-3-3' });
         console.log(findOneResult);
         console.log('-----------------------------------');
