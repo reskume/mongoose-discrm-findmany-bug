@@ -1,0 +1,15 @@
+{
+  "name": "mongoose_discriminator_collection_query",
+  "version": "1.0.0",
+  "description": "Reproduceable example of the mongoose discriminator collection query bug",
+  "main": "index.js",
+  "scripts": {
+    "start": "TZ='UTC' NODE_ENV=development node ./index.js"
+  },
+  "author": "Stephan Besser",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^6.2.5",
+    "mongoose-lean-virtuals": "^0.9.0"
+  }
+}
