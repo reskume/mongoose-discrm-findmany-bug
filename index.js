@@ -11,20 +11,20 @@ const Ats4 = require('./src/ats4-model');
             autoIndex: true,
         });
         mongoose.set('debug', true);
+
         await createFixtures();
-        console.log('Result for "find" on collection WITHOUT inheritance:');
+        console.log('Result for "find" on collection WITHOUT inheritance does not loose filters:');
         const findSimpleResult = await Atm.find({ serialNumber: 'atm-2' });
-        // returns exactly ONE document in the result list
         console.log(findSimpleResult);
         console.log('-----------------------------------');
-        console.log('Result for "find one" on collection WITH inheritance:');
-        const findOneResult = await Ats.findOne({ serialNumber: 'ats-3-1' });
+        console.log('Result for "find one" on collection WITH inheritance does loose filters:');
+        // first item in databse is returned since filters are list when mongoose executes the query (see debug output)
+        const findOneResult = await Ats.findOne({ serialNumber: 'ats-3-3' });
         console.log(findOneResult);
         console.log('-----------------------------------');
-        console.log('Result for "find" on collection WITH inheritance => returns all items in collection!:');
-        // this should return exactly ONE document in the result list
+        console.log('Result for "find" on collection WITH inheritance  does loose filters:');
+        // all items in database are returned since filters are list when mongoose executes the query (see debug output)
         const findManyResult = await Ats.find({ serialNumber: 'ats-3-1' });
-        // but ALL items in the collection are returned instead
         console.log(findManyResult);
     } catch (e) {
         throw new Error(e);
