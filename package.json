@@ -9,7 +9,7 @@
   "author": "Stephan Besser",
   "license": "MIT",
   "dependencies": {
-    "mongoose": "^6.2.5",
+    "mongoose": "6.2.5",
     "mongoose-lean-virtuals": "^0.9.0"
   }
 }
