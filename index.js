@@ -10,6 +10,7 @@ const Ats4 = require('./src/ats4-model');
             // enable automatic index creation
             autoIndex: true,
         });
+        mongoose.set('debug', true);
         await createFixtures();
         console.log('Result for "find" on collection WITHOUT inheritance:');
         const findSimpleResult = await Atm.find({ serialNumber: 'atm-2' });
